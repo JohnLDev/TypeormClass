@@ -8,7 +8,12 @@ const classRouter = Router()
 classRouter.post('/', async (request, response) => {
   try {
     const repo = getRepository(Class)
-    const resp = await repo.save(request.body)
+
+    const { name, duration } = request.body // tratamento de resposta
+    const respTrated = { name: name, duration: duration } // tratamento de resposta
+
+    const resp = await repo.save(respTrated)
+
     return response.status(201).json(resp)
   } catch (error) {
     console.log('error.message:>>', error.message)
