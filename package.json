@@ -1,0 +1,38 @@
+{
+  "name": "quickorm",
+  "version": "0.0.1",
+  "description": "Awesome project developed with TypeORM.",
+  "license": "MIT",
+  "devDependencies": {
+    "@types/node": "^8.0.29",
+    "@typescript-eslint/eslint-plugin": "^4.1.1",
+    "@typescript-eslint/parser": "^4.1.1",
+    "eslint": "^7.9.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-config-standard": "^14.1.1",
+    "eslint-import-resolver-typescript": "^2.3.0",
+    "eslint-plugin-import": "^2.22.0",
+    "eslint-plugin-node": "^11.1.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-promise": "^4.2.1",
+    "eslint-plugin-standard": "^4.0.1",
+    "prettier": "^2.1.2",
+    "ts-node": "3.3.0",
+    "ts-node-dev": "^1.0.0-pre.62",
+    "typescript": "3.3.3333"
+  },
+  "dependencies": {
+    "@types/express": "^4.17.8",
+    "express": "^4.17.1",
+    "pg": "^7.3.0",
+    "reflect-metadata": "^0.1.10",
+    "typeorm": "0.2.26",
+    "uuidv4": "^6.2.3"
+  },
+  "scripts": {
+    "build":"tsc",
+    "start": "ts-node src/index.ts",
+    "dev:server": "ts-node-dev --transpile-only --inspect --ignore-watch node_modules src/server.ts",
+    "typeorm": "ts-node-dev ./node_modules/typeorm/cli.js"
+    }}
+
