@@ -21,7 +21,7 @@ classRouter.get('/', async (request, response) => {
 classRouter.get('/:name', async (request, response) => {
   const repository = getCustomRepository(ClassRepository)
   const { name } = request.params
-  const res = await repository.findByName(name)
+  const res = await repository.findByName(name) // método criado no ClassRepository
   response.json(res)
 })
 
