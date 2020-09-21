@@ -12,8 +12,12 @@ contentRouter.post('/', async (request, response) => {
   try {
     const repo = getRepository(Content)
 
-    const { description, linkContent } = request.body
-    const respTrated = { description: description, linkContent: linkContent }
+    const { description, linkContent, lesson } = request.body
+    const respTrated = {
+      lesson: lesson,
+      description: description,
+      linkContent: linkContent,
+    }
 
     const resp = await repo.save(respTrated)
     return response.status(201).json(resp)
@@ -21,3 +25,4 @@ contentRouter.post('/', async (request, response) => {
     console.log('error message:>>', error.message)
   }
 })
+export default contentRouter

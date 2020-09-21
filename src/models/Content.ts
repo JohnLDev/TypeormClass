@@ -1,8 +1,17 @@
-import { Column, Entity, PrimaryColumn } from 'typeorm'
+import {
+  Column,
+  CreateDateColumn,
+  Entity,
+  JoinColumn,
+  OneToOne,
+  PrimaryGeneratedColumn,
+  UpdateDateColumn,
+} from 'typeorm'
+import { Lesson } from './Lesson'
 
 @Entity()
 export class Content {
-  @PrimaryColumn('uuid')
+  @PrimaryGeneratedColumn('uuid')
   id: string
 
   @Column()
@@ -10,4 +19,14 @@ export class Content {
 
   @Column()
   linkContent: string
+
+  @OneToOne(() => Lesson, lesson => lesson.id, { eager: true })
+  @JoinColumn({ referencedColumnName: 'id' })
+  lesson: Lesson
+
+  @CreateDateColumn({ name: 'created_At' })
+  createdAt: Date
+
+  @UpdateDateColumn({ name: 'updated_At' })
+  updatedAt: Date
 }
